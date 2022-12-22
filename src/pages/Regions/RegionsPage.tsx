@@ -32,6 +32,7 @@ export const RegionsPage: React.FC = () => {
       const region = regions[getRandomIndex(regions.length)];
 
       dispatch(regionsActions.setCurrentRegion(region));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.log(error.message);
     }
