@@ -8,3 +8,9 @@ export const SPECIES_IN_REGION = [
     `https://apiv3.iucnredlist.org/api/v3/species/region/`,
     `/page/0?token=${token}`,
 ];
+
+export const CRITICAL_ENGAGED_IN_REGION = [
+    `https://apiv3.iucnredlist.org/api/v3/threats/species/name/`,
+    `/region/`,
+    `/?token=${token}`,
+];
