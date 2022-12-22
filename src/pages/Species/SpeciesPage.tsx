@@ -2,8 +2,18 @@ import React, { useEffect } from "react";
 
 import { useSelector } from "react-redux";
 
+import { Species } from "../../models";
 import { AppState } from "../../store";
+
 import { SPECIES_IN_REGION } from "../../CONSTANTS";
+
+interface SpeciesData {
+  class_name: string;
+  family_name: string;
+  kingdom_name: string;
+  main_common_name: string;
+  scientific_name: string;
+}
 
 export const SpeciesPage: React.FC = () => {
   const currentRegion = useSelector((state: AppState) => state.region.currentRegion);
@@ -27,7 +37,17 @@ export const SpeciesPage: React.FC = () => {
       fr.onload = function () {
         const data = JSON.parse(this.result as string);
 
-        console.log(data.result); //TODO: remove this console log  in next tasks
+        const species: Species[] = data.result.map((speciesData: SpeciesData) => {
+          return {
+            class: speciesData.class_name,
+            family: speciesData.family_name,
+            kingdomName: speciesData.kingdom_name,
+            mainCommonName: speciesData.main_common_name,
+            scientificName: speciesData.scientific_name,
+          };
+        });
+
+        console.log(species); //TODO: remove this console log  in next tasks
       };
 
       fr.readAsText(b);
