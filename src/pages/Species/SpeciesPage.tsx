@@ -47,7 +47,7 @@ export const SpeciesPage: React.FC = () => {
           };
         });
 
-        console.log(species); //TODO: remove this console log  in next tasks
+        console.log(species); //TODO: remove this console log in next tasks
       };
 
       fr.readAsText(b);
