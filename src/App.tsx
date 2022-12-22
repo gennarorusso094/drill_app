@@ -1,9 +1,14 @@
 import React from "react";
 
-import "./App.scss";
+import LayoutContainer from "./containers";
+import { RegionsPage } from "./pages/RegionsPage";
 
 function App() {
-  return <div className="App">Hello world!</div>;
+  return (
+    <LayoutContainer>
+      <RegionsPage />
+    </LayoutContainer>
+  );
 }
 
 export default App;
