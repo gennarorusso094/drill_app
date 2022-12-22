@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect } from "react";
 
+import { Region } from "../models";
 import { REGIONS_URL } from "../CONSTANTS";
+import { getRandomIndex } from "../utils";
 
 export const RegionsPage: React.FC = () => {
   const fetchRegions = useCallback(async () => {
@@ -13,17 +15,26 @@ export const RegionsPage: React.FC = () => {
 
       const data = await response.json();
 
-      console.log(data.results); // TODO: remove this console log in next tasks
+      const regions: Region[] = data.results.map((regionData: Region) => {
+        return {
+          name: regionData.name,
+          identifier: regionData.identifier,
+        };
+      });
+
+      const region = regions[getRandomIndex(regions.length)];
+
+      console.log(region.name); // TODO: remove this console log in next tasks
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      alert(error.message);
+      console.log(error.message);
     }
   }, []);
 
   useEffect(() => {
     fetchRegions();
-  }, [fetchRegions]);
+  }, []);
 
   return null;
 };
