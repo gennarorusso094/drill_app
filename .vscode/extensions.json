@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "burkeholland.simple-react-snippets",
+    "hookyqr.beautify",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "yzhang.markdown-all-in-one",
+    "formulahendry.auto-rename-tag",
+    "aaron-bond.better-comments"
+  ]
+}
